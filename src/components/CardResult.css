@@ -1,0 +1,24 @@
+.card-result {
+    border-bottom: 1px solid black;
+    padding: 10px;
+}
+
+.card-result-red {
+    background: linear-gradient(left, red, white)
+}
+
+.card-result-blue {
+    background: linear-gradient(left, blue, white)
+}
+
+.card-result-white {
+    background: linear-gradient(left, whitesmoke, white)
+}
+
+.card-result-green {
+    background: linear-gradient(left, green, white)
+}
+
+.card-result-black {
+    background: linear-gradient(left, black, white)
+}
