@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import './CardResult.css';
-import 'mana-font/css/mana.min.css';
+import ManaCost from './ManaCost'
 
 
 export default class CardResult extends Component {
@@ -11,7 +11,6 @@ export default class CardResult extends Component {
 
         };
         this.setColorIdentityClass(props.card.colors);
-        this.setIconClass(props.card.manaCost);
     };
 
     setColorIdentityClass(colors){
@@ -21,28 +20,7 @@ export default class CardResult extends Component {
         this.state.colorIdentityClass = 'card-result-' + loweredColors.join('-')
     };
 
-    setIconClass(manaCost) {
-        var baseClasses = "ms ms-cost ms-shadow";
-        var costs = manaCost.match(/\{.*?\}/g);
-        var costsFormatted = costs.map(function(cost){
-            debugger;
-            var noBrackets = cost.substring(1, cost.length-1);
-            var isPhyrexian = noBrackets.indexOf('P') > -1;
-            var isSplit = !isPhyrexian && noBrackets.indexOf('\/') > -1;
-
-            var lower = noBrackets.toLowerCase();
-            var noSlashes = ""; //todo remove slashes
-            
-            var classString = "ms-";
-            
-            
-
-            return 
-        });
-
-
-        debugger;
-    }
+    
 
     render () {
         return (
@@ -50,9 +28,7 @@ export default class CardResult extends Component {
                 <div className="card-result-name">
                     {this.props.card.name}
                 </div>
-                <ul className="mana-symbols">
-
-                </ul>
+                <ManaCost manaCost={this.props.card.manaCost} />
             </div>
         )
     }

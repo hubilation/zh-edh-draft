@@ -22,3 +22,9 @@
 .card-result-black {
     background: linear-gradient(left, black, white)
 }
+
+.card-result-name {
+    display: inline-block;
+    vertical-align: middle;
+    font-size: 16px;
+}
