@@ -19,6 +19,10 @@
     background: linear-gradient(left, whitesmoke, white)
 }
 
+.card-result-white-green {
+    background: linear-gradient(left, whitesmoke, green, white)
+}
+
 .card-result-green {
     background: linear-gradient(left, green, white)
 }

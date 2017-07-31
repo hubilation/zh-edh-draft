@@ -35,7 +35,7 @@ export default class ManaCost extends Component {
       return baseClasses + " " + classString;
     });
 
-    var icons = costClasses.map(costClass => <li className={costClass} />);
+    var icons = costClasses.map((costClass, index) => <li key={index} className={costClass} />);
 
     this.state.icons = icons;
   }

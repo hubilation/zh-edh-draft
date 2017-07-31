@@ -10,7 +10,7 @@ constructor(props){
   super(props);
 
   this.state = {
-    cards: MockResult.map((result)=><CardResult card={result} />)
+    cards: MockResult.map((result)=><CardResult key={result.id} card={result} />)
   }
 
 }
