@@ -10,14 +10,15 @@ constructor(props){
   super(props);
 
   this.state = {
-    card: MockResult
+    cards: MockResult.map((result)=><CardResult card={result} />)
   }
+
 }
 
   render() {
     return (
       <div className="App container-fluid">
-        <CardResult card={this.state.card} />
+        {this.state.cards}
       </div>
     );
   }

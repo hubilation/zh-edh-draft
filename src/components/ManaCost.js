@@ -11,6 +11,9 @@ export default class ManaCost extends Component {
   }
 
   setIcons(manaCost) {
+      if(!manaCost){
+          return;
+      }
     var baseClasses = "ms ms-cost ms-shadow";
     var costs = manaCost.match(/\{.*?\}/g);
     var costClasses = costs.map(function(cost) {

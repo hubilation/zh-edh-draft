@@ -14,6 +14,9 @@ export default class CardResult extends Component {
     };
 
     setColorIdentityClass(colors){
+        if(!colors){
+            return;
+        }
         var loweredColors = colors.map(function(color){
             return color.toLowerCase();
         });

@@ -11,6 +11,10 @@
     background: linear-gradient(left, blue, white)
 }
 
+.card-result-blue-red {
+    background: linear-gradient(left, blue, red, white)
+}
+
 .card-result-white {
     background: linear-gradient(left, whitesmoke, white)
 }
