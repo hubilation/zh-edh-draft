@@ -3,17 +3,10 @@ import "./ManaCost.css";
 import React, { Component } from "react";
 
 export default class ManaCost extends Component {
-  constructor(props) {
-    super(props);
-
-    this.state = {};
-    this.setIcons(this.props.manaCost);
-  }
-
-  setIcons(manaCost) {
-      if(!manaCost){
-          return;
-      }
+  getIcons(manaCost) {
+    if (!manaCost) {
+      return;
+    }
     var baseClasses = "ms ms-cost ms-shadow";
     var costs = manaCost.match(/\{.*?\}/g);
     var costClasses = costs.map(function(cost) {
@@ -35,15 +28,18 @@ export default class ManaCost extends Component {
       return baseClasses + " " + classString;
     });
 
-    var icons = costClasses.map((costClass, index) => <li key={index} className={costClass} />);
+    var icons = costClasses.map((costClass, index) =>
+      <li key={index} className={costClass} />
+    );
 
-    this.state.icons = icons;
+    return icons;
   }
 
   render() {
+    var icons = this.getIcons(this.props.manaCost);
     return (
       <ul className="mana-cost">
-        {this.state.icons}
+        {icons}
       </ul>
     );
   }

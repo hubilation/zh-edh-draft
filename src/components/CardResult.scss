@@ -1,43 +1,37 @@
+@import 'variables.scss';
+
 .card-result {
     border-bottom: 1px solid black;
-    padding: 10px;
+    padding: 10px 0px 10px 40px;
+
 }
 
 .card-result-red {
-    background: linear-gradient(left, red, white)
+    background: linear-gradient(to right, $mtg-red, white)
 }
 
 .card-result-blue {
-    background: linear-gradient(left, blue, white)
+    background: linear-gradient(to right, $mtg-blue, white)
 }
 
 .card-result-blue-red {
-    background: linear-gradient(left, blue, red, white)
+    background: linear-gradient(to right, $mtg-blue, $mtg-red, white)
 }
 
 .card-result-white {
-    background: linear-gradient(left, whitesmoke, white)
+    background: linear-gradient(to right, $mtg-white, white)
 }
 
-/*
-white #FCFCC1
-blue #67C1F5
-black #848484
-red #F85555
-green #26B569
-*/
-
-
 .card-result-white-green {
-    background: linear-gradient(left, whitesmoke, green, white)
+    background: linear-gradient(to right, $mtg-white, $mtg-green, white)
 }
 
 .card-result-green {
-    background: linear-gradient(left, green, white)
+    background: linear-gradient(to right, $mtg-green, white)
 }
 
 .card-result-black {
-    background: linear-gradient(left, black, white)
+    background: linear-gradient(to right, $mtg-black, white)
 }
 
 .card-result-name {
