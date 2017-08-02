@@ -5,7 +5,7 @@ import React, { Component } from "react";
 export default class ManaCost extends Component {
   getIcons(manaCost) {
     if (!manaCost) {
-      return;
+      return (<li className="mana-placeholder" />);
     }
     var baseClasses = "ms ms-cost ms-shadow";
     var costs = manaCost.match(/\{.*?\}/g);

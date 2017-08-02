@@ -26,18 +26,15 @@ class App extends Component {
       return;
     }
     var names = [];
-    mtg.card.where({ name: input }).then(cardResults => {
-      var distinct = cardResults.map(function(cardResult) {
+    mtg.card.where({ name: input, gameFormat: 'commander' }).then(cardResults => {
+      var distinct = [];
+      cardResults.map(function(cardResult) {
         if (names.indexOf(cardResult.name) > -1) {
           return;
         }
         names.push(cardResult.name);
-        return cardResult;
+        distinct.push(cardResult);
       });
-      for(var i = distinct.length - 1; i>=0; i--){
-        if(!distinct[i])
-          distinct.splice(i,1);
-      }
       this.setState({
         cards: distinct.map(cardResult =>
           <CardResult key={cardResult.id} card={cardResult} />

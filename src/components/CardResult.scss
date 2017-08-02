@@ -1,41 +1,15 @@
 @import 'variables.scss';
 
 .card-result {
-    border-bottom: 1px solid black;
-    padding: 10px 0px 10px 40px;
-
-}
-
-.card-result-red {
-    background: linear-gradient(to right, $mtg-red, white)
-}
-
-.card-result-blue {
-    background: linear-gradient(to right, $mtg-blue, white)
-}
-
-.card-result-blue-red {
-    background: linear-gradient(to right, $mtg-blue, $mtg-red, white)
-}
-
-.card-result-white {
-    background: linear-gradient(to right, $mtg-white, white)
-}
-
-.card-result-white-green {
-    background: linear-gradient(to right, $mtg-white, $mtg-green, white)
-}
-
-.card-result-green {
-    background: linear-gradient(to right, $mtg-green, white)
-}
-
-.card-result-black {
-    background: linear-gradient(to right, $mtg-black, white)
+    border-bottom: 1px solid white;
+    border-radius: 5px;
+    padding: 10px 0px 10px 10px;
 }
 
 .card-result-name {
     display: inline-block;
     vertical-align: middle;
     font-size: 16px;
+    line-height:20px;
+    font-weight: 700;
 }
