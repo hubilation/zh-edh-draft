@@ -11,35 +11,50 @@ class App extends Component {
     super(props);
 
     this.state = {
-      cards: [],
-      searchInput: ""
+      cardsRaw: [],
+      searchInput: "",
+      expandedCardIndex: -1
     };
 
     this.handleChange = this.handleChange.bind(this);
+    this.handleExpandClick = this.handleExpandClick.bind(this);
   }
 
   handleChange(event) {
     var input = event.target.value;
     this.setState({ searchInput: input });
-    if(input.length < 2){
-      this.setState({cards: []});
+    if (input.length < 2) {
+      this.setState({ cards: [] });
       return;
     }
     var names = [];
-    mtg.card.where({ name: input, gameFormat: 'commander' }).then(cardResults => {
-      var distinct = [];
-      cardResults.map(function(cardResult) {
-        if (names.indexOf(cardResult.name) > -1) {
-          return;
-        }
-        names.push(cardResult.name);
-        distinct.push(cardResult);
+    mtg.card
+      .where({ name: input, gameFormat: "commander" })
+      .then(cardResults => {
+        var distinct = [];
+        cardResults.map(function(cardResult) {
+          if (names.indexOf(cardResult.name) > -1) {
+            return;
+          }
+          names.push(cardResult.name);
+          distinct.push(cardResult);
+        });
+        this.setState({
+          cardsRaw: distinct,
+          expandedCardIndex: -1
+        });
       });
+  }
+
+  handleExpandClick(index) {
+    if (this.state.expandedCardIndex === index) {
       this.setState({
-        cards: distinct.map(cardResult =>
-          <CardResult key={cardResult.id} card={cardResult} />
-        )
+        expandedCardIndex: -1
       });
+      return;
+    }
+    this.setState({
+      expandedCardIndex: index
     });
   }
 
@@ -51,7 +66,15 @@ class App extends Component {
           placeholder="Select a card!"
           onChange={this.handleChange}
         />
-        {this.state.cards}
+        {this.state.cardsRaw.map((cardResult, index) =>
+            <CardResult
+              key={cardResult.id}
+              index={index}
+              card={cardResult}
+              handleExpandClick={this.handleExpandClick}
+              expandedCardIndex={this.state.expandedCardIndex}
+            />
+          )}
       </div>
     );
   }
