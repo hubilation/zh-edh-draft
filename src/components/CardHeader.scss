@@ -1,0 +1,30 @@
+.card-header {
+  border-radius: 5px;
+  padding: 5px 0px 5px 5px;
+}
+
+.card-result-name {
+  display: inline-block;
+  vertical-align: middle;
+  font-size: 16px;
+  line-height: 20px;
+  font-weight: 700;
+  width: 55%;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+.card-ctas {
+  display: inline-block;
+  vertical-align: middle;
+  width: 15%;
+  text-align: center;
+  margin-bottom: 3px;
+  font-size: 20px;
+}
+
+
+.card-cta {
+  margin-right:5px;
+}

@@ -2,33 +2,10 @@
 
 .card-result {
   border-bottom: 1px solid white;
-  background-color: lightgray;
   border-radius: 5px;
-}
-
-.card-header {
-  border-radius: 5px;
-  padding: 5px 0px 5px 5px;
-}
-
-.card-result-name {
-  display: inline-block;
-  vertical-align: middle;
-  font-size: 16px;
-  line-height: 20px;
-  font-weight: 700;
-  width: 60%;
-}
-
-.card-ctas {
-  display: inline-block;
-  vertical-align: middle;
-  width: 10%;
-  text-align: center;
-  margin-bottom: 3px;
-  font-size: 20px;
 }
 
 .card-image {
   margin: 5px;
+  width: 100%;
 }

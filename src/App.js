@@ -2,22 +2,25 @@ import React, { Component } from "react";
 import logo from "./logo.svg";
 import "./App.css";
 import CardResult from "./components/CardResult";
-import MockResult from "./components/MockResult";
 import SearchBar from "./components/SearchBar";
-import mtg from "mtgsdk";
+import CardApi from "./api/CardApi";
 
 class App extends Component {
   constructor(props) {
     super(props);
 
     this.state = {
-      cardsRaw: [],
+      cards: [],
+      selectedCards: [],
       searchInput: "",
-      expandedCardIndex: -1
+      expandedCardIndex: -1,
+      confirmSelectCardIndex: -1
     };
 
     this.handleChange = this.handleChange.bind(this);
     this.handleExpandClick = this.handleExpandClick.bind(this);
+    this.toggleConfirmDisplay = this.toggleConfirmDisplay.bind(this);
+    this.addCardToQueue = this.addCardToQueue.bind(this);
   }
 
   handleChange(event) {
@@ -27,23 +30,12 @@ class App extends Component {
       this.setState({ cards: [] });
       return;
     }
-    var names = [];
-    mtg.card
-      .where({ name: input, gameFormat: "commander" })
-      .then(cardResults => {
-        var distinct = [];
-        cardResults.map(function(cardResult) {
-          if (names.indexOf(cardResult.name) > -1) {
-            return;
-          }
-          names.push(cardResult.name);
-          distinct.push(cardResult);
-        });
-        this.setState({
-          cardsRaw: distinct,
-          expandedCardIndex: -1
-        });
+    CardApi.GetDistinctCardsByName(input).then(cardResults => {
+      this.setState({
+        cards: cardResults,
+        expandedCardIndex: -1
       });
+    });
   }
 
   handleExpandClick(index) {
@@ -58,6 +50,23 @@ class App extends Component {
     });
   }
 
+  toggleConfirmDisplay(index) {
+    if (this.state.confirmSelectCardIndex === index) {
+      this.setState({
+        confirmSelectCardIndex: -1
+      });
+      return;
+    }
+    this.setState({
+      confirmSelectCardIndex: index
+    });
+  }
+
+  addCardToQueue(index){
+    this.setState({selectedCards: [...this.state.selectedCards, this.state.cards[index]]});
+    console.log(this.state.selectedCards);
+  }
+
   render() {
     return (
       <div className="App container-fluid">
@@ -66,15 +75,18 @@ class App extends Component {
           placeholder="Select a card!"
           onChange={this.handleChange}
         />
-        {this.state.cardsRaw.map((cardResult, index) =>
-            <CardResult
-              key={cardResult.id}
-              index={index}
-              card={cardResult}
-              handleExpandClick={this.handleExpandClick}
-              expandedCardIndex={this.state.expandedCardIndex}
-            />
-          )}
+        {this.state.cards.map((cardResult, index) =>
+          <CardResult
+            key={cardResult.id}
+            index={index}
+            card={cardResult}
+            handleExpandClick={this.handleExpandClick}
+            expandedCardIndex={this.state.expandedCardIndex}
+            toggleConfirmDisplay={this.toggleConfirmDisplay}
+            confirmSelectCardIndex={this.state.confirmSelectCardIndex}
+            addCardToQueue={this.addCardToQueue}
+          />
+        )}
       </div>
     );
   }
