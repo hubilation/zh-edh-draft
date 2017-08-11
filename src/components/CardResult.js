@@ -28,7 +28,7 @@ export default class CardResult extends Component {
             />
           : <div />}
         <CardImage
-          imageUrl={this.props.card.imageUrl}
+          imageUrl={this.props.card.image_uri}
           display={showCardImage}
         />
       </div>

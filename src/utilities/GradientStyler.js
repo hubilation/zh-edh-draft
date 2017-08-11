@@ -30,13 +30,12 @@ export default class GradientStyler {
 
   static getGradientStyleReversed(colors) {
     var gradientProps = [];
-
     gradientProps.push("to right");
 
     if (!colors || colors.length < 2) {
       gradientProps.push("white");
     }
-    if (!colors) gradientProps.push("#D7D1D0");
+    if (!colors || colors.length === 0) gradientProps.push("#D7D1D0");
     else {
       var hexCodes = colors.map(function(color) {
         var loweredColor = color.toLowerCase();

@@ -23,7 +23,6 @@ export default class CardHeader extends Component {
   }
   render() {
     var style = GradientStyler.getGradientStyleReversed(this.props.card.colors);
-
     return (
       <div>
         <div className="card-header" style={style}>
@@ -50,7 +49,7 @@ export default class CardHeader extends Component {
           <div className="card-result-name">
             {this.props.card.name}
           </div>
-          <ManaCost manaCost={this.props.card.manaCost} />
+          <ManaCost manaCost={this.props.card.mana_cost} />
         </div>
       </div>
     );
