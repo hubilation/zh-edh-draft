@@ -1,0 +1,92 @@
+{
+  "selectedCards": [
+    {
+      "name": "Aerial Caravan",
+      "id": "adac91af-5165-4779-99f7-e75c83fa5d5d",
+      "owner": 1
+    }
+  ],
+  "draftqueue": [
+    {
+      "card": {
+        "object": "card",
+        "id": "adac91af-5165-4779-99f7-e75c83fa5d5d",
+        "multiverse_id": 19667,
+        "mtgo_id": 13163,
+        "name": "Aerial Caravan",
+        "uri": "https://api.scryfall.com/cards/mmq/58",
+        "scryfall_uri": "https://scryfall.com/card/mmq/58?utm_source=api",
+        "highres_image": true,
+        "image_uri": "https://img.scryfall.com/cards/normal/en/mmq/58.jpg?1496446452",
+        "image_uris": {
+          "small": "https://img.scryfall.com/cards/small/en/mmq/58.jpg?1496446452",
+          "normal": "https://img.scryfall.com/cards/normal/en/mmq/58.jpg?1496446452",
+          "large": "https://img.scryfall.com/cards/large/en/mmq/58.jpg?1496446452",
+          "png": "https://img.scryfall.com/cards/png/en/mmq/58.png?1496446452"
+        },
+        "cmc": 6,
+        "type_line": "Creature — Human Soldier",
+        "oracle_text": "Flying\n{1}{U}{U}: Exile the top card of your library. Until end of turn, you may play that card. (Reveal the card as you exile it.)",
+        "mana_cost": "{4}{U}{U}",
+        "power": "4",
+        "toughness": "3",
+        "colors": [
+          "U"
+        ],
+        "color_identity": [
+          "U"
+        ],
+        "layout": "normal",
+        "legalities": {
+          "standard": "not_legal",
+          "frontier": "not_legal",
+          "modern": "not_legal",
+          "pauper": "not_legal",
+          "legacy": "legal",
+          "penny": "not_legal",
+          "vintage": "legal",
+          "duel": "legal",
+          "commander": "legal",
+          "1v1": "legal"
+        },
+        "reserved": false,
+        "set": "mmq",
+        "set_name": "Mercadian Masques",
+        "set_uri": "https://api.scryfall.com/cards/search?q=%2B%2Be%3Ammq",
+        "scryfall_set_uri": "https://scryfall.com/search?q=%2B%2Be%3Ammq&utm_source=api",
+        "collector_number": "58",
+        "digital": false,
+        "rarity": "rare",
+        "flavor_text": "Successful delivery is not guaranteed.",
+        "artist": "DiTerlizzi",
+        "frame": "1993",
+        "border_color": "black",
+        "timeshifted": false,
+        "colorshifted": false,
+        "futureshifted": false,
+        "usd": "0.29",
+        "tix": "0.03",
+        "eur": "0.19",
+        "related_uris": {
+          "gatherer": "http://gatherer.wizards.com/Pages/Card/Details.aspx?multiverseid=19667",
+          "tcgplayer_decks": "http://magic.tcgplayer.com/db/deck_search_result.asp?CardName=Aerial+Caravan&partner=Scryfall",
+          "edhrec": "http://edhrec.com/route/?cc=Aerial+Caravan",
+          "mtgtop8": "http://mtgtop8.com/search?MD_check=1&SB_check=1&cards=Aerial+Caravan"
+        },
+        "purchase_uris": {
+          "amazon": "https://www.amazon.com/gp/search?ie=UTF8&index=toys-and-games&keywords=Aerial+Caravan&tag=scryfall-20",
+          "ebay": "http://rover.ebay.com/rover/1/711-53200-19255-0/1?campid=5337966903&icep_catId=19107&icep_ff3=10&icep_sortBy=12&icep_uq=Aerial+Caravan&icep_vectorid=229466&ipn=psmain&kw=lg&kwid=902099&mtid=824&pub=5575230669&toolid=10001",
+          "tcgplayer": "http://store.tcgplayer.com/magic/mercadian-masques/aerial-caravan?partner=Scryfall",
+          "magiccardmarket": "https://www.magiccardmarket.eu/Products/Singles/Mercadian+Masques/Aerial+Caravan?referrer=scryfall",
+          "cardhoarder": "https://www.cardhoarder.com/cards/13163?affiliate_id=scryfall&ref=card-profile&utm_campaign=affiliate&utm_medium=card&utm_source=scryfall",
+          "card_kingdom": "http://www.cardkingdom.com/catalog/item/36057?partner=scryfall&utm_campaign=affiliate&utm_medium=scryfall&utm_source=scryfall",
+          "mtgo_traders": "http://www.mtgotraders.com/deck/ref.php?id=13163&referral=scryfall",
+          "coolstuffinc": "http://www.coolstuffinc.com/p/Magic%3A+The+Gathering/Aerial+Caravan?utm_source=scryfall"
+        }
+      },
+      "ownerId": 1,
+      "queueTime": "2017-08-12T06:47:16.517Z",
+      "id": 1
+    }
+  ]
+}

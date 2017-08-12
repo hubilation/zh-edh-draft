@@ -13,6 +13,7 @@ export default class CardHeader extends Component {
 
     this.toggleShowImage = this.toggleShowImage.bind(this);
     this.toggleConfirmDisplay = this.toggleConfirmDisplay.bind(this);
+    this.getHeaderClass = this.getHeaderClass.bind(this);
   }
 
   toggleShowImage() {
@@ -20,6 +21,17 @@ export default class CardHeader extends Component {
   }
   toggleConfirmDisplay() {
     this.props.toggleConfirmDisplay(this.props.index);
+  }
+  getHeaderClass(card) {
+    var activeClasses = [];
+
+    activeClasses.push("card-result-name");
+
+    var isOwned = card.ownedBy;
+
+    if (isOwned) activeClasses.push("taken");
+
+    return activeClasses.join(" ");
   }
   render() {
     var style = GradientStyler.getGradientStyleReversed(this.props.card.colors);
@@ -46,7 +58,9 @@ export default class CardHeader extends Component {
                   onClick={this.toggleConfirmDisplay}
                 />}
           </div>
-          <div className="card-result-name">
+          <div
+            className={this.getHeaderClass(this.props.card)}
+          >
             {this.props.card.name}
           </div>
           <ManaCost manaCost={this.props.card.mana_cost} />

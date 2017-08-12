@@ -23,6 +23,15 @@ class App extends Component {
     this.addCardToQueue = this.addCardToQueue.bind(this);
   }
 
+  componentWillMount() {
+    CardApi.GetSelectedCardsFromDb().then(c => {
+      this.setState({ selectedCards: c });
+    });
+    CardApi.GetDraftQueueForPlayer().then(d=>{
+      debugger;
+    })
+  }
+
   handleChange(event) {
     var input = event.target.value;
     this.setState({ searchInput: input });
@@ -62,8 +71,13 @@ class App extends Component {
     });
   }
 
-  addCardToQueue(index){
-    this.setState({selectedCards: [...this.state.selectedCards, this.state.cards[index]]});
+  addCardToQueue(index) {
+
+    CardApi.QueueCard(this.state.cards[index], 1);
+
+    this.setState({
+      selectedCards: [...this.state.selectedCards, this.state.cards[index]]
+    });
     console.log(this.state.selectedCards);
   }
 
