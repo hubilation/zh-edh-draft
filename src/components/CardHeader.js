@@ -11,17 +11,9 @@ export default class CardHeader extends Component {
   constructor(props) {
     super(props);
 
-    this.toggleShowImage = this.toggleShowImage.bind(this);
-    this.toggleConfirmDisplay = this.toggleConfirmDisplay.bind(this);
     this.getHeaderClass = this.getHeaderClass.bind(this);
   }
 
-  toggleShowImage() {
-    this.props.handleExpandClick(this.props.index);
-  }
-  toggleConfirmDisplay() {
-    this.props.toggleConfirmDisplay(this.props.index);
-  }
   getHeaderClass(card) {
     var activeClasses = [];
 

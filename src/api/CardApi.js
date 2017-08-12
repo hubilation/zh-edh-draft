@@ -45,7 +45,6 @@ export default class CardApi {
         owner
       })
       .then(f => {
-        debugger;
       });
   }
 

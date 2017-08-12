@@ -4,34 +4,30 @@ import CardImage from "./CardImage";
 import CardHeader from "./CardHeader";
 import ConfirmCardSelect from "./ConfirmCardSelect";
 
-export default class CardResult extends Component {
-  render() {
-    var showCardImage = this.props.index === this.props.expandedCardIndex;
+const CardResult = (card, index, expandedCardIndex, confirmSelectCardIndex) => {
+    var showCardImage = index === expandedCardIndex;
     var showConfirmSelect =
-      this.props.index === this.props.confirmSelectCardIndex;
+      index === confirmSelectCardIndex;
     return (
       <div className="card-result">
         <CardHeader
-          card={this.props.card}
+          card={card}
           showCardImage={showCardImage}
           confirmSelectShowing={showConfirmSelect}
-          index={this.props.index}
-          handleExpandClick={this.props.handleExpandClick}
-          toggleConfirmDisplay={this.props.toggleConfirmDisplay}
+          index={index}
         />
         {showConfirmSelect
           ? <ConfirmCardSelect
-              card={this.props.card}
-              addCardToQueue={this.props.addCardToQueue}
-              toggleConfirmDisplay={this.props.toggleConfirmDisplay}
-              index={this.props.index}
+              card={card}
+              index={index}
             />
           : <div />}
         <CardImage
-          imageUrl={this.props.card.image_uri}
+          imageUrl={card.image_uri}
           display={showCardImage}
         />
       </div>
     );
   }
-}
+
+  export default CardResult
