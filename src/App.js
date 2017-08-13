@@ -18,21 +18,6 @@ class App extends Component {
     CardApi.GetDraftQueueForPlayer().then(d => {});
   }
 
-  handleChange(event) {
-    var input = event.target.value;
-    this.setState({ searchInput: input });
-    if (input.length < 2) {
-      this.setState({ cards: [] });
-      return;
-    }
-    CardApi.GetDistinctCardsByName(input).then(cardResults => {
-      this.setState({
-        cards: cardResults,
-        expandedCardIndex: -1
-      });
-    });
-  }
-
   addCardToQueue(index) {
     CardApi.QueueCard(this.state.cards[index], 1);
 

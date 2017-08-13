@@ -11,7 +11,9 @@ const searchResults = (state = InitialState, action) => {
         ...state,
         fetchingSearchResults: false,
         cards: action.cards,
-        searchInput:action.searchTerm
+        searchInput:action.searchTerm,
+        expandedCardIndex: -1,
+        confirmSelectCardIndex: -1
       };
     case "TOGGLE_EXPAND_CARD_DETAIL":
       var newIndex = -1;
