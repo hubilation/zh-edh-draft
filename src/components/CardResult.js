@@ -1,23 +1,18 @@
 import React, { Component } from "react";
 import "./CardResult.css";
 import CardImage from "./CardImage";
-import CardHeader from "./CardHeader";
-import ConfirmCardSelect from "./ConfirmCardSelect";
+import SearchResultHeader from "../containers/SearchResultHeader";
+import SearchResultConfirmSelect from "../containers/SearchResultConfirmSelect";
 
-const CardResult = (card, index, expandedCardIndex, confirmSelectCardIndex) => {
-    var showCardImage = index === expandedCardIndex;
-    var showConfirmSelect =
-      index === confirmSelectCardIndex;
+const CardResult = ({card, index, showCardImage, showConfirmSelect}) => {
     return (
       <div className="card-result">
-        <CardHeader
+        <SearchResultHeader
           card={card}
-          showCardImage={showCardImage}
-          confirmSelectShowing={showConfirmSelect}
           index={index}
         />
         {showConfirmSelect
-          ? <ConfirmCardSelect
+          ? <SearchResultConfirmSelect
               card={card}
               index={index}
             />

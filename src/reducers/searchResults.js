@@ -4,6 +4,15 @@ const searchResults = (state = InitialState, action) => {
   switch (action.type) {
     case "UPDATE_SEARCH_INPUT":
       return { ...state, searchInput: action.text };
+    case "REQUEST_SEARCH_RESULTS":
+      return { ...state, fetchingSearchResults: true };
+    case "RECEIVE_SEARCH_RESULTS":
+      return {
+        ...state,
+        fetchingSearchResults: false,
+        cards: action.cards,
+        searchInput:action.searchTerm
+      };
     case "TOGGLE_EXPAND_CARD_DETAIL":
       var newIndex = -1;
       if (state.expandedCardIndex === -1) {
@@ -17,9 +26,9 @@ const searchResults = (state = InitialState, action) => {
       }
       return { ...state, confirmSelectCardIndex: newIndex };
     case "QUEUE_CARD":
-      return { ...state, selectedCardIndex: action.cardIndex};
+      return { ...state, selectedCardIndex: action.cardIndex };
     default:
-      return {...state}
+      return { ...state };
   }
 };
 

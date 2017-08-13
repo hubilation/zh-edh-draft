@@ -39,3 +39,5 @@ const ConfirmCardSelect = ({
           </div>
         </div>}
   </div>;
+
+export default ConfirmCardSelect;

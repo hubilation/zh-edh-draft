@@ -10,7 +10,6 @@ import MdClose from "react-icons/lib/md/close";
 export default class CardHeader extends Component {
   constructor(props) {
     super(props);
-
     this.getHeaderClass = this.getHeaderClass.bind(this);
   }
 
@@ -33,26 +32,24 @@ export default class CardHeader extends Component {
           <div className="card-ctas">
             {this.props.showCardImage
               ? <MdExpandMore
-                  onClick={this.toggleShowImage}
+                  onClick={this.props.handleExpandClick}
                   className="card-cta"
                 />
               : <MdExpandLess
-                  onClick={this.toggleShowImage}
+                  onClick={this.props.handleExpandClick}
                   className="card-cta"
                 />}
-            {this.props.confirmSelectShowing
+            {this.props.showConfirmSelect
               ? <MdClose
                   className="card-cta"
-                  onClick={this.toggleConfirmDisplay}
+                  onClick={this.props.toggleConfirmDisplay}
                 />
               : <MdAdd
                   className="card-cta"
-                  onClick={this.toggleConfirmDisplay}
+                  onClick={this.props.toggleConfirmDisplay}
                 />}
           </div>
-          <div
-            className={this.getHeaderClass(this.props.card)}
-          >
+          <div className={this.getHeaderClass(this.props.card)}>
             {this.props.card.name}
           </div>
           <ManaCost manaCost={this.props.card.mana_cost} />

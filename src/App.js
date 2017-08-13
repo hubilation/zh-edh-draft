@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import logo from "./logo.svg";
 import "./App.css";
 import SearchResults from "./containers/SearchResults";
-import SearchBar from "./components/SearchBar";
+import SearchBar from "./containers/SearchBar";
 import CardApi from "./api/CardApi";
 
 class App extends Component {
@@ -46,9 +46,7 @@ class App extends Component {
     return (
       <div className="App container-fluid">
         <SearchBar
-          value={this.state.searchInput}
           placeholder="Select a card!"
-          onChange={this.handleChange}
         />
         <SearchResults />
       </div>
