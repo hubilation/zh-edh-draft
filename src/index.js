@@ -11,6 +11,8 @@ import draftApp from "./reducers";
 import InitialState from "./utilities/InitialState";
 import thunkMiddleWare from "redux-thunk";
 import { createLogger } from "redux-logger";
+import { Route } from "react-router";
+import {BrowserRouter as Router} from "react-router-dom";
 
 const loggerMiddleWare = createLogger();
 let store = createStore(
@@ -20,7 +22,9 @@ let store = createStore(
 
 ReactDOM.render(
   <Provider store={store}>
-    <App />
+    <Router>
+      <Route path="/" component={App} />
+    </Router>
   </Provider>,
   document.getElementById("root")
 );
