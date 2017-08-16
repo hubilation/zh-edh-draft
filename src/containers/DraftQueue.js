@@ -1,8 +1,8 @@
 import React from "react";
 
-const DraftQueue = () =>
-    <div>
+const DraftQueue = ({queuedCards}) =>
+    <div className="container-fluid">
         DRAFT QUEUE
-        </div>
+    </div>
 
 export default DraftQueue;
