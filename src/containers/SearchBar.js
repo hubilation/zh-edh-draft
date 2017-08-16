@@ -4,7 +4,8 @@ import { updateSearchInput, fetchSearchResults } from "../actions";
 
 const mapStateToProps = state => {
   return {
-    value: state.searchInput
+    value: state.searchInput,
+    placeholder: "Select a card!"
   };
 };
 

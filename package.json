@@ -9,6 +9,7 @@
     "mtgsdk": "^0.3.0",
     "node-sass-chokidar": "0.0.3",
     "npm-run-all": "^4.0.2",
+    "prop-types": "^15.5.10",
     "react": "^15.6.1",
     "react-bootstrap": "^0.31.1",
     "react-dom": "^15.6.1",

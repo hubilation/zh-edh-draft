@@ -19,21 +19,19 @@ export default class CardApi {
   //     });
   // }
 
-  static GetDraftQueueForPlayer(ownerId){
+  static GetDraftQueueForPlayer(ownerId) {
     return request
-      .get('http://localhost:4000/draftqueue')
-      .query({ownerId, _sort: "queueTime"})
-      .then(q=>q.body);
+      .get("http://localhost:4000/draftqueue")
+      .query({ ownerId, _sort: "queueTime" })
+      .then(q => q.body);
   }
 
   static QueueCard(card, owner) {
-    return request
-      .post(`http://localhost:4000/draftqueue/`)
-      .send({
-        card: card,
-        ownerId: owner,
-        queueTime: new Date()
-      });
+    return request.post(`http://localhost:4000/draftqueue/`).send({
+      card: card,
+      ownerId: owner,
+      queueTime: new Date()
+    });
   }
 
   static SelectCard(card, owner) {
@@ -44,8 +42,7 @@ export default class CardApi {
         id: card.id,
         owner
       })
-      .then(f => {
-      });
+      .then(f => {});
   }
 
   static GetSelectedCardsFromDb() {
@@ -62,23 +59,28 @@ export default class CardApi {
   }
 
   static GetDistinctCardsByName(input) {
-    return request
-      .get("https://api.scryfall.com/cards/search")
-      .query({ q: input })
-      .then(cardResults => {
-        var cards = cardResults.body.data;
-        var selectedCards = this.GetSelectedCards();
-
-        var result = cards.map(card => {
-          var selectedCard = selectedCards.filter(c => c.name === card.name);
-          if (selectedCard.length > 0) {
-            card.ownedBy = selectedCard[0].owner;
+    return new Promise(resolve => {
+      return request
+        .get("https://api.scryfall.com/cards/search")
+        .query({ q: input })
+        .end((error, response) => {
+          if (error) {
+            return resolve([]);
           }
+          var cards = response.body.data;
+          var selectedCards = this.GetSelectedCards();
 
-          return card;
+          var result = cards.map(card => {
+            var selectedCard = selectedCards.filter(c => c.name === card.name);
+            if (selectedCard.length > 0) {
+              card.ownedBy = selectedCard[0].owner;
+            }
+
+            return card;
+          });
+
+          return resolve(result);
         });
-
-        return result;
-      });
+    });
   }
 }

@@ -18,18 +18,19 @@ export function fetchSearchResults(searchTerm) {
   return function(dispatch) {
     dispatch(requestSearchResults(searchTerm));
 
+    var requestedAt = Date.now();
     return CardApi.GetDistinctCardsByName(searchTerm).then(cards =>
-      dispatch(receiveSearchResults(searchTerm, cards))
+      dispatch(receiveSearchResults(searchTerm, cards, requestedAt))
     );
   };
 }
 
-export const receiveSearchResults = (searchTerm, cards) => {
+export const receiveSearchResults = (searchTerm, cards, requestedAt) => {
   return {
     type: "RECEIVE_SEARCH_RESULTS",
     searchTerm,
     cards,
-    receivedAt: Date.now()
+    requestedAt
   };
 };
 

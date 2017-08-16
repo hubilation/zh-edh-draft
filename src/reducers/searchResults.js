@@ -7,13 +7,19 @@ const searchResults = (state = InitialState, action) => {
     case "REQUEST_SEARCH_RESULTS":
       return { ...state, fetchingSearchResults: true };
     case "RECEIVE_SEARCH_RESULTS":
+      var cards = action.cards;
+      var searchRequestDateTime = action.requestedAt;
+      if(state.searchLastRequestedAt && action.requestedAt < state.searchLastRequestedAt){
+        cards = state.cards;
+        searchRequestDateTime = state.searchLastRequestedAt;
+      }
       return {
         ...state,
         fetchingSearchResults: false,
-        cards: action.cards,
-        searchInput:action.searchTerm,
+        cards: cards,
         expandedCardIndex: -1,
-        confirmSelectCardIndex: -1
+        confirmSelectCardIndex: -1,
+        searchLastRequestedAt: searchRequestDateTime
       };
     case "TOGGLE_EXPAND_CARD_DETAIL":
       var newIndex = -1;
