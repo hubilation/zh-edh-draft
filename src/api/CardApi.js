@@ -79,7 +79,7 @@ export default class CardApi {
             return card;
           });
 
-          return resolve(result);
+          return resolve(result.slice(0,20));
         });
     });
   }
