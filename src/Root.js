@@ -4,15 +4,15 @@ import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 import { Provider } from "react-redux";
 import CardSearch from "./containers/CardSearch";
 import DraftQueue from "./containers/DraftQueue";
-import './Root.css';
+import "./Root.css";
 
 const Root = ({ store }) =>
   <Provider store={store}>
     <Router>
-      <nav>
-        <div>
-          <Route exact path="/" component={CardSearch} />
-          <Route path="/queue" component={DraftQueue} />
+      <div>
+        <Route exact path="/" component={CardSearch} />
+        <Route path="/queue" component={DraftQueue} />
+        <nav>
           <ul>
             <li>
               <Link to="/">Search</Link>
@@ -21,8 +21,8 @@ const Root = ({ store }) =>
               <Link to="/queue">Queue</Link>
             </li>
           </ul>
-        </div>
-      </nav>
+        </nav>
+      </div>
     </Router>
   </Provider>;
 
