@@ -48,6 +48,13 @@ export const toggleDisplayConfirmQueue = cardIndex => {
   };
 };
 
+export const requestQueuedCardsForUser = userId =>{
+  return {
+    type: "REQUEST_QUEUED_CARDS_FOR_USER",
+    userId
+  }
+} 
+
 export const queueCard = cardIndex => {
   return {
     type: "QUEUE_CARD",

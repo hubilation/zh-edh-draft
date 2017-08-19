@@ -1,7 +1,28 @@
+import React from "react";
 import { connect } from "react-redux";
-import CardHeader from "../components/CardHeader";
-import { toggleCardDetailExpand, toggleDisplayConfirmQueue } from "../actions";
 import GradientStyler from "../utilities/GradientStyler";
+import "../components/CardHeader.css";
+import ManaCost from "../components/ManaCost";
+import SearchResultHeaderCtas from '../containers/SearchResultHeaderCtas'
+
+const jsx = ({
+  card,
+  headerClass,
+  gradientStyle,
+  index
+}) => {
+  return (
+    <div>
+      <div className="card-header" style={gradientStyle}>
+        <SearchResultHeaderCtas index={index} />
+        <div className={headerClass}>
+          {card.name}
+        </div>
+        <ManaCost manaCost={card.mana_cost} />
+      </div>
+    </div>
+  );
+};
 
 
 const mapStateToProps = (state, ownProps) => {
@@ -23,8 +44,6 @@ function getHeaderClass(card){
     return activeClasses.join(" ");
 }
 
-const SearchResultHeader = connect(mapStateToProps)(
-  CardHeader
-);
+const CardHeader = connect(mapStateToProps)(jsx);
 
-export default SearchResultHeader;
+export default CardHeader;

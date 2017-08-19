@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React from "react";
 import MdAdd from "react-icons/lib/md/add";
 import MdExpandLess from "react-icons/lib/md/expand-less";
 import MdExpandMore from "react-icons/lib/md/expand-more";

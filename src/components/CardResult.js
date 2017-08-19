@@ -1,13 +1,13 @@
 import React, { Component } from "react";
 import "./CardResult.css";
 import CardImage from "./CardImage";
-import SearchResultHeader from "../containers/SearchResultHeader";
+import CardHeader from "../containers/CardHeader";
 import SearchResultConfirmSelect from "../containers/SearchResultConfirmSelect";
 
 const CardResult = ({card, index, showCardImage, showConfirmSelect}) => {
     return (
       <div className="card-result">
-        <SearchResultHeader
+        <CardHeader
           card={card}
           index={index}
         />

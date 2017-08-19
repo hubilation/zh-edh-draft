@@ -59,10 +59,10 @@ export default class CardApi {
   }
 
   static GetDistinctCardsByName(input) {
+    var inputWithCommander = input + "+format:commander";
     return new Promise(resolve => {
       return request
-        .get("https://api.scryfall.com/cards/search")
-        .query({ q: input })
+        .get("https://api.scryfall.com/cards/search?q="+inputWithCommander)
         .end((error, response) => {
           if (error) {
             return resolve([]);
